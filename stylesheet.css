@@ -1,0 +1,265 @@
+/* ↓ ファイルの一番最初に追加 */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 基本的なリセットと設定 */
+body {
+    margin: 0;
+    font-family: sans-serif; /* 簡単なフォント指定 */
+    background-color: #f8f8f8; /* 背景色を少しつける */
+    color: #333; /* 基本文字色 */
+    padding-top: 64px;
+}
+
+img {
+    max-width: 100%; /* 画像が親要素からはみ出ないように */
+    height: auto;    /* 高さは自動調整 */
+    display: block;  /* 画像下の余白対策 */
+}
+
+a {
+    text-decoration: none; /* リンクの下線を消す */
+    color: inherit; /* 親要素の色を継承 */
+}
+
+/* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.header-list ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-list li {
+    font-size: 1em;
+    color: #555;
+}
+
+.menu-icon {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.8em;
+    color: #333;
+    cursor: pointer;
+}
+
+
+/* main要素の基本的なスタイル */
+.main_fluid {
+    max-width: 1200px; /* 最大幅を設定 */
+    margin: 20px auto; /* 上下に余白、左右中央寄せ */
+    padding: 0 32px;   /* 左右にパディング */
+}
+
+.article-list-container h2 {
+    font-size: 3.2em;
+    margin-top: 2em;
+    margin-bottom: 1.2em;
+    text-align: left; /* タイトルを中央揃え */
+    color: #111;
+    font-weight: 900;
+}
+
+
+/* 記事リストのグリッドレイアウト */
+.article-list {
+    display: grid;
+    /*
+     * repeat(): 繰り返しを指定
+     * auto-fit: 要素を指定した最小幅(minmaxの第一引数)で可能な限り詰め込み、
+     * 残ったスペースを均等に分配して列幅を広げる。
+     * 画面幅が狭くなると自動的に列数が減る。
+     * minmax(280px, 1fr): 列の最小幅を280pxとし、最大幅は利用可能なスペース(1fr)とする。
+     */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* グリッドアイテム間の隙間 */
+}
+
+/* 記事画像のスタイル （今回追加するルール） */
+.article-image {
+    margin: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; 
+}
+
+
+.article-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-text-content {
+    margin-top: 15px;
+}
+
+.article-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+
+}
+
+.article-title a {
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #12161A;
+    text-decoration: none;
+}
+
+.article-tags {
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.8em;
+    color: #555;
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.article-meta {
+    font-size: 0.85em; 
+    color: #888;
+    margin-top: 0; 
+}
+
+/* 記事カードのスタイル */
+/*.article-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}　*/
+
+/* ホバー時の簡単なエフェクト */
+/*.article-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+}　*/
+
+/* カード画像部分 */
+/*.card-image-wrapper {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}*/
+
+/*.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}*/
+
+.article-card:hover .card-image-wrapper img {
+    transform: scale(1.05); /* ホバー時に画像を少し拡大 */
+}
+
+/* カードコンテンツ部分 */
+/*.card-content {
+    padding: 15px;
+}*/
+
+/* カテゴリ */
+/*.card-category {
+    display: inline-block;
+    font-size: 0.8em;
+    color: #666;
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}*/
+
+/* 記事タイトル */
+/*.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+/* メタ情報（日付と著者） */
+/*.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 15px;
+}*/
+
+
+/* スマートフォンなど狭い画面向けの調整 (オプション) */
+@media (max-width: 600px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .header-list {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .main_fluid {
+        margin-top: 10px; /* これは既存 */
+        padding: 0 20px; /* ← この行を追加 (左右の余白を狭める) */
+    }
+
+    .article-list-container h2 {
+        font-size: 2.0em;
+        margin-top: 1em;
+        margin-bottom: 0.8em;
+    }
+
+    .article-list {
+        /* 1列にする (minmaxのおかげで不要な場合もあるが、明示的に指定) */
+        grid-template-columns: 1fr;
+        gap: 20px; /* 隙間を少し狭める */
+    }
+
+    .article-title a {
+        font-size: 1.1em;
+    }
+
+    .main_fluid {
+        margin-top: 10px; /* 上部マージンを調整 */
+    }
+}
